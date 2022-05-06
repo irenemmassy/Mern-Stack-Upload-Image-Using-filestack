@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.flex-colo{
+    @apply flex justify-center items-center flex-col
+}
+input:focus{
+    outline: 0;
+}
