@@ -1,6 +1,6 @@
 {
-  "short_name": "Filestack",
-  "name": "Upload image using filestack",
+  "short_name": "zpunet filestack",
+  "name": "file upload using filestack",
   "icons": [
     {
       "src": "favicon.png",

@@ -2,36 +2,33 @@ import axios from "axios";
 
 const URL = process.env.REACT_APP_SERVER_URL;
 
-export const getDatas = async ({ setResult, setGetDataLoad }) => {
+export const getData = async ({ setGetDataLoading, setResult }) => {
   try {
-    setGetDataLoad(true);
     let res = await axios.get(`${URL}/all`);
+    setGetDataLoading(false);
     setResult(res.data);
-    if (res) {
-      setGetDataLoad(false);
-    }
   } catch (error) {
     alert(error.response.data.msg);
-    setGetDataLoad(false);
+    setGetDataLoading(false);
   }
 };
 
 export const postData = async ({
+  setpostDataLoading,
+  setPostDatas,
   title,
   image,
-  setPostDataLoad,
-  setPostDatas,
 }) => {
   try {
     const datas = { title, image: image.filesUploaded[0].url };
-    setPostDataLoad(true);
-    const res = await axios.post(`${URL}/`, datas);
+    setpostDataLoading(true);
+    let res = await axios.post(`${URL}/`, datas);
     if (res) {
-      setPostDataLoad(false);
+      setpostDataLoading(false);
       setPostDatas(res.data);
     }
   } catch (error) {
     alert(error.response.data.msg);
-    setPostDataLoad(false);
+    setpostDataLoading(false);
   }
 };

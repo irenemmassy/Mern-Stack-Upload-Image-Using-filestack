@@ -1,15 +1,14 @@
 import mongoose from "mongoose";
 
-export const MongoDbConnect = async () => {
+export const MongodbConnect = async () => {
   try {
     mongoose.connect(process.env.MONGO_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-
-    console.log(`MongoDB Connected`);
+    console.log("MongoDB connect");
   } catch (error) {
-    console.error(`Error: ${error.message}`);
+    console.log(`Error: ${error.message}`);
     process.exit(1);
   }
 };
